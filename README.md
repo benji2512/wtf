@@ -29,10 +29,10 @@ Awesome! [See here](https://wtfutil.com/sponsors/exit_message/) for how you can 
 <p></p>
 
 * [Installation](#installation)
-    * [Installing via Homebrew](#installing-via-homebrew)
-    * [Installing via MacPorts](#installing-via-macports)
-    * [Installing a Binary](#installing-a-binary)
-    * [Installing from Source](#installing-from-source)
+    * ~~[Installing via Homebrew](#installing-via-homebrew)
+    * ~~[Installing via MacPorts](#installing-via-macports)
+    * ~~[Installing a Binary](#installing-a-binary)
+    * ~~[Installing from Source](#installing-from-source)
     * [Running via Docker](#running-via-docker)
 * [Communication](#communication)
     * [Slack](#slack)
@@ -54,96 +54,96 @@ Awesome! [See here](https://wtfutil.com/sponsors/exit_message/) for how you can 
 
 ### Installing via Homebrew
 
-The simplest way from Homebrew:
+~~The simplest way from Homebrew:
 
-```console
+~~```console
 brew install wtfutil
 
-wtfutil
-```
+~~wtfutil
+~~```
 
-That version can sometimes lag a bit, as recipe updates take time to get accepted into `homebrew-core`. If you always want the bleeding edge of releases, you can tap it:
+~~That version can sometimes lag a bit, as recipe updates take time to get accepted into `homebrew-core`. If you always want the bleeding edge of releases, you can tap it:
 
-```console
+~~```console
 brew tap wtfutil/wtfutil
 brew install wtfutil
 
-wtfutil
-```
+~~wtfutil
+~~```
 
-### Installing via MacPorts
+~~### Installing via MacPorts
 
-You can also install via [MacPorts](https://www.macports.org/):
+~~You can also install via [MacPorts](https://www.macports.org/):
 
-```console
+~~```console
 sudo port selfupdate
 sudo port install wtfutil
 
-wtfutil
-```
+~~wtfutil
+~~```
 
-### Installing a Binary
+~~### Installing a Binary
 
-[Download the latest binary](https://github.com/wtfutil/wtf/releases) from GitHub.
+~~[Download the latest binary](https://github.com/wtfutil/wtf/releases) from GitHub.
 
-WTF is a stand-alone binary. Once downloaded, copy it to a location you can run executables from (ie: `/usr/local/bin/`), and set the permissions accordingly:
+~~WTF is a stand-alone binary. Once downloaded, copy it to a location you can run executables from (ie: `/usr/local/bin/`), and set the permissions accordingly:
 
-```bash
+~~```bash
 chmod a+x /usr/local/bin/wtfutil
-```
+~~```
 
-and you should be good to go.
+~~and you should be good to go.
 
-### Installing from Source
+~~### Installing from Source
 
-If you want to run the build command from within your `$GOPATH`:
+~~If you want to run the build command from within your `$GOPATH`:
 
-```bash
+~~```bash
 # Set the Go proxy
 export GOPROXY="https://proxy.golang.org,direct"
 
-# Disable the Go checksum database
-export GOSUMDB=off
+~~# Disable the Go checksum database
+~~export GOSUMDB=off
 
-# Enable Go modules
-export GO111MODULE=on
+~~# Enable Go modules
+~~export GO111MODULE=on
 
-go get -u github.com/wtfutil/wtf
-cd $GOPATH/src/github.com/wtfutil/wtf
-make install
-make run
-```
+~~go get -u github.com/wtfutil/wtf
+~~cd $GOPATH/src/github.com/wtfutil/wtf
+~~make install
+~~make run
+~~```
 
-If you want to run the build command from a folder that is not in your `$GOPATH`:
+~~If you want to run the build command from a folder that is not in your `$GOPATH`:
 
-```bash
+~~```bash
 # Set the Go proxy
 export GOPROXY="https://proxy.golang.org,direct"
 
-go get -u github.com/wtfutil/wtf
-cd $GOPATH/src/github.com/wtfutil/wtf
-make install
-make run
-```
+~~go get -u github.com/wtfutil/wtf
+~~cd $GOPATH/src/github.com/wtfutil/wtf
+~~make install
+~~make run
+~~```
 
-### Installing from Source using Docker
+~~### Installing from Source using Docker
 
-All building is done inside a docker container. You can then copy the binary to
+~~All building is done inside a docker container. You can then copy the binary to
 your local machine.
 
-```bash
+~~```bash
 curl -o Dockerfile.build https://raw.githubusercontent.com/wtfutil/wtf/master/Dockerfile.build
 docker build -f Dockerfile.build -t wtfutil --build-arg=version=master .
 docker create --name wtf_build wtfutil
 docker cp wtf_build:/usr/local/bin/wtfutil ~/.local/bin
 docker rm wtf_build
-```
+~~```
 
 **Note:** WTF is _only_ compatible with Go versions **1.16.0** or later (due to the use of Go modules and newer standard library functions). If you would like to use `gccgo` to compile, you _must_ use `gccgo-9` or later which introduces support for Go modules.
 
-### Installing via Arch User Repository
+~~### Installing via Arch User Repository
 
-Arch Linux users can utilise the [wtfutil](https://aur.archlinux.org/packages/wtfutil) package to build it from source, or [wtfutil-bin](https://aur.archlinux.org/packages/wtfutil-bin/) to install pre-built binaries.
+~~Arch Linux users can utilise the [wtfutil](https://aur.archlinux.org/packages/wtfutil) package to build it from source, or [wtfutil-bin](https://aur.archlinux.org/packages/wtfutil-bin/) to install pre-built binaries.
 
 ## Running via Docker
 
